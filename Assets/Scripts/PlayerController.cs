@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
             playerObject.AddForce(new Vector2(0.0f, jumpForce));
         }
 
-        float movementValueX = Input.GetAxis("Horizontal");
+        float movementValueX = 1.0f;
 
         playerObject.velocity = new Vector2 (movementValueX * tempSpeed, playerObject.velocity.y);
 
