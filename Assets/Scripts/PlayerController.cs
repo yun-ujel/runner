@@ -7,8 +7,7 @@ public class PlayerController : MonoBehaviour
     public GameObject groundChecker;
     public LayerMask whatIsGround;
 
-    public float maxSpeed = 5.0f; 
-    public float tempSpeed;
+    public float runSpeed = 5.0f; 
     public float jumpForce = 100.0f;
     bool isOnGround = false;
     
@@ -19,7 +18,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerObject = GetComponent<Rigidbody2D>();
-        tempSpeed = maxSpeed;
+        
     }
 
     // Update is called once per frame
@@ -32,9 +31,9 @@ public class PlayerController : MonoBehaviour
 
         float movementValueX = 1.0f;
 
-        playerObject.velocity = new Vector2 (movementValueX * tempSpeed, playerObject.velocity.y);
+        playerObject.velocity = new Vector2 (movementValueX * runSpeed, playerObject.velocity.y);
 
-        isOnGround = Physics2D.OverlapCircle(groundChecker.transform.position, 1.0f, whatIsGround);
+        isOnGround = Physics2D.OverlapCircle(groundChecker.transform.position, 0.5f, whatIsGround);
 
     }
 }
