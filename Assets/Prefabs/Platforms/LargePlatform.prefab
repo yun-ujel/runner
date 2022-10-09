@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7529257844453885520}
   - component: {fileID: 8472590652858343303}
   - component: {fileID: 2086642141188732400}
+  - component: {fileID: -9031192044919035208}
   m_Layer: 8
   m_Name: LargePlatform
   m_TagString: CleanUp
@@ -92,7 +93,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1898528676811064398}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: cb21a421437d4e341af47ca92cd6e09b, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -109,3 +110,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &-9031192044919035208
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898528676811064398}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 6200000, guid: cb21a421437d4e341af47ca92cd6e09b, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
