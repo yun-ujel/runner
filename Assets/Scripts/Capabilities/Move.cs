@@ -64,4 +64,9 @@ public class Move : MonoBehaviour
         // so that scripts that change other parts of velocity are not harmed
         body.velocity = velocity;
     }
+
+    public float GetVelocity()
+    {
+        return velocity.x;
+    }
 }

@@ -7,10 +7,10 @@ public class Jump : MonoBehaviour
     // These values are serialized so that it's possible to edit them in the Unity inspector
     // Some of these use sliders for the sake of convenience, although they're not entirely necessary
     [SerializeField] private inputController input = null;
-    [SerializeField, Range(0f, 80f)] private float jumpHeight = 3f;
+    [SerializeField, Range(0f, 80f)] private float jumpHeight = 20f;
     [SerializeField, Range(0, 10)] private int maxAirJumps = 0;
-    [SerializeField, Range(0f, 20f)] private float downwardMovementMultiplier = 3f;
-    [SerializeField, Range(0f, 20f)] private float upwardMovementMultiplier = 1.7f;
+    [SerializeField, Range(0f, 20f)] private float downwardMovementMultiplier = 6f;
+    [SerializeField, Range(0f, 20f)] private float upwardMovementMultiplier = 4f;
     [SerializeField] private float defaultGravityScale;
 
 
@@ -80,6 +80,7 @@ public class Jump : MonoBehaviour
         {
             // Change the jump state to this condition "Rising"
             jumpStatus = 2;
+            Debug.Log("Status: Rising");
         }
         // If the player was rising, and has now let go of the jump button:
         else if ((!input.RetrieveJumpStatus()) && (jumpStatus == 2) && (body.velocity.y > 0))
@@ -87,6 +88,7 @@ public class Jump : MonoBehaviour
             // Call for the FallAction method and set the jump state to this condition "Falling"
             FallAction();
             jumpStatus = 0;
+            Debug.Log("Status: Falling");
         }
 
 
@@ -132,7 +134,7 @@ public class Jump : MonoBehaviour
 
     private void JumpAction()
     {
-        Debug.Log("Jump Desired");
+
         // Check if either the player is grounded or if they haven't yet used all of their midair jumps
         if(onGround || jumpPhase < maxAirJumps)
         {
@@ -151,13 +153,26 @@ public class Jump : MonoBehaviour
             }
             // Here the jumpSpeed is added to the velocity
             velocity.y += jumpSpeed;
-            Debug.Log("Jump Triggered");
+
         }
     }
 
     // This method is used to lower the jump velocity, for use in variable jumps 
     private void FallAction()
     {
-        velocity.y = velocity.y * 0.05f;
+        velocity.y = velocity.y * 0.2f;
+    }
+
+    public bool GetIsRising()
+    {
+        if(velocity.y > 0f)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
     }
 }

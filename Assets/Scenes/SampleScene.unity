@@ -485,6 +485,8 @@ GameObject:
   - component: {fileID: 586050550}
   - component: {fileID: 586050549}
   - component: {fileID: 586050551}
+  - component: {fileID: 586050553}
+  - component: {fileID: 586050552}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -667,11 +669,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 11400000, guid: f2cdc8d9e88d37d43ac58c1407b3024d, type: 2}
-  jumpHeight: 12
-  maxAirJumps: 0
+  jumpHeight: 20
+  maxAirJumps: 1
   downwardMovementMultiplier: 6
   upwardMovementMultiplier: 4
   defaultGravityScale: 0
+--- !u!95 &586050552
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586050543}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e77c24ea51e4f9b48bd278ce90d79172, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &586050553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586050543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91db45afadfafbd42a29865f34ebe886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &676075202
 GameObject:
   m_ObjectHideFlags: 0
@@ -710,7 +743,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 676075202}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58aad3129b5d9b045aa413dca5278231, type: 3}
   m_Name: 
@@ -759,7 +792,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1707689931}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58aad3129b5d9b045aa413dca5278231, type: 3}
   m_Name: 
@@ -808,7 +841,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1951750219}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58aad3129b5d9b045aa413dca5278231, type: 3}
   m_Name: 
