@@ -40,7 +40,7 @@ public class playerAnimator : MonoBehaviour
         {
             gameObject.transform.localScale = new Vector3(-1, 1, 1);
         }
-        else
+        if (speed > 0)
         {
             gameObject.transform.localScale = new Vector3(1, 1, 1);
         }
