@@ -38,11 +38,11 @@ public class playerAnimator : MonoBehaviour
 
         if (speed < 0)
         {
-            gameObject.transform.localScale = new Vector3(-spriteSize, spriteSize, spriteSize);
+            gameObject.transform.localScale = new Vector3(-spriteSize, spriteSize, 1);
         }
         if (speed > 0)
         {
-            gameObject.transform.localScale = new Vector3(Mathf.Abs(spriteSize), spriteSize, spriteSize);
+            gameObject.transform.localScale = new Vector3(Mathf.Abs(spriteSize), spriteSize, 1);
         }
     }
 }

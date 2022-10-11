@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class timeSpawner : MonoBehaviour
 {
     public GameObject[] objectsToSpawn;
 
     float timeToNextSpawn;
     float timeSinceLastSpawn = 0.0f;
+
 
     public float minSpawnTime =0.5f;
     public float maxSpawnTime =3.0f;
@@ -19,6 +20,7 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
+
         timeSinceLastSpawn = timeSinceLastSpawn + Time.deltaTime;
 
         if(timeSinceLastSpawn > timeToNextSpawn)
