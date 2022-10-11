@@ -9,7 +9,6 @@ public class playerAnimator : MonoBehaviour
     private Jump jump;
     private Ground ground;
     private Vector3 these;
-    [SerializeField] private float spriteSize = 1f;
 
     private float speed;
 
@@ -38,11 +37,11 @@ public class playerAnimator : MonoBehaviour
 
         if (speed < 0)
         {
-            gameObject.transform.localScale = new Vector3(-spriteSize, spriteSize, 1);
+            gameObject.transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
         if (speed > 0)
         {
-            gameObject.transform.localScale = new Vector3(Mathf.Abs(spriteSize), spriteSize, 1);
+            gameObject.transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
     }
 }

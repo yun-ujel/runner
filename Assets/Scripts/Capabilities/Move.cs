@@ -7,10 +7,11 @@ public class Move : MonoBehaviour
     // These values are serialized so that it's possible to edit them in the Unity inspector
     // Some of these use sliders for the sake of convenience, although they're not entirely necessary
     [SerializeField] private inputController input = null;
-    [SerializeField, Range(0f, 100f)] private float maxSpeed = 4f;
+    [SerializeField, Range(0f, 100f)] private float minSpeed = 4f;
     [SerializeField, Range(0f, 100f)] private float maxAcceleration = 35f;
     [SerializeField, Range(0f, 100f)] private float maxAirAcceleration = 20f;
 
+    private float speed;
     private Vector2 direction;
     private Vector2 desiredVelocity;
     private Vector2 velocity;
@@ -19,6 +20,9 @@ public class Move : MonoBehaviour
     // but because inputController is interchangeable, it's serialized.
     // This Movement script would likely not function without Ground, which may potentially be a flaw
     private Ground ground;
+
+    GameObject cam;
+    CameraController joe;
 
     private float maxSpeedChange;
     private float acceleration;
@@ -30,15 +34,28 @@ public class Move : MonoBehaviour
         // These variables are used for reference of other components
         body = GetComponent<Rigidbody2D>();
         ground = GetComponent<Ground>();
+
+        cam = GameObject.Find("MC");
+        joe = cam.GetComponent<CameraController>();
+        speed = minSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(minSpeed < joe.cameraSpeed)
+        {
+            speed = joe.cameraSpeed;
+        }
+        else
+        {
+            speed = minSpeed;
+        }
+
         // This takes the direction of movement from the input
         direction.x = input.RetrieveMoveInput();
         // This uses that direction and multiplies it with the maxSpeed minus the friction, as long as this is above 0
-        desiredVelocity = new Vector2(direction.x, 0f) * Mathf.Max(maxSpeed - ground.GetFriction(), 0f);
+        desiredVelocity = new Vector2(direction.x, 0f) * Mathf.Max(speed - ground.GetFriction(), 0f);
     }
 
     // FixedUpdate runs at a fixed interval independent of the framerate,
