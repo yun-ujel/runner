@@ -45,7 +45,7 @@ public class Move : MonoBehaviour
     {
         if(minSpeed < joe.cameraSpeed)
         {
-            speed = joe.cameraSpeed;
+            speed = 1.1f * joe.cameraSpeed;
         }
         else
         {

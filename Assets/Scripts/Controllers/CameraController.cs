@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float cameraSpeed = 2f;
+
     [SerializeField] private float maxCameraSpeed = 16f;
     [SerializeField] private float speedMultiplier = 1.0001f;
+    public float cameraSpeed = 2f;
+
     private Rigidbody2D body;
     private Vector2 velocity;
 
@@ -22,7 +24,7 @@ public class CameraController : MonoBehaviour
     {
         if(player.transform.position.x > transform.position.x)
         {
-            transform.position = new Vector3(Mathf.Max(player.transform.position.x - cameraSpeed * 2, transform.position.x), transform.position.y, transform.position.z);
+            transform.position = new Vector3(Mathf.Max(player.transform.position.x - cameraSpeed, transform.position.x), transform.position.y, transform.position.z);
         }
 
         velocity = body.velocity;
