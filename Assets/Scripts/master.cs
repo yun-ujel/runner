@@ -20,9 +20,12 @@ public class master : MonoBehaviour
         pmc = player.GetComponent<Move>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Update()
     {
-        Restart();
+        if (player.transform.position.y < -20)
+        {
+            Restart();
+        }
     }
 
     private void Restart()

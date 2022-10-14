@@ -12,6 +12,7 @@ public class CameraController : MonoBehaviour
 
     private Rigidbody2D body;
     private Vector2 velocity;
+    Move pmc;
 
     GameObject player;
 
@@ -24,10 +25,7 @@ public class CameraController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(player.transform.position.x > transform.position.x)
-        {
-            transform.position = new Vector3(Mathf.Max(player.transform.position.x - cameraSpeed, transform.position.x), transform.position.y, transform.position.z);
-        }
+
 
         velocity = body.velocity;
 
@@ -39,8 +37,15 @@ public class CameraController : MonoBehaviour
         {
             cameraSpeed = maxCameraSpeed;
         }
+        if (player.transform.position.x - 5 > transform.position.x)
+        {
+            velocity.x = cameraSpeed * 1.1f;
+        }
+        else
+        {
+            velocity.x = cameraSpeed;
+        }
 
-        velocity.x = cameraSpeed;
         body.velocity = velocity;
     }
 
@@ -48,5 +53,6 @@ public class CameraController : MonoBehaviour
     {
         cameraSpeed = startingCameraSpeed;
         transform.position = new Vector3(0, transform.position.y, transform.position.z);
+
     }
 }

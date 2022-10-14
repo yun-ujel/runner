@@ -8,15 +8,11 @@ public class scoreManager : MonoBehaviour
     public TextMeshProUGUI ScoreText;
     public float distanceScore;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
 
     // Update is called once per frame
     void Update()
     {
-        ScoreText.text = "Score: " + distanceScore.ToString();
+        ScoreText.text = "Score: " + Mathf.Max(distanceScore, 0f).ToString();
     }
 }
