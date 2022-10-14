@@ -37,7 +37,7 @@ public class Move : MonoBehaviour
 
         cam = GameObject.Find("MC");
         joe = cam.GetComponent<CameraController>();
-        speed = minSpeed;
+        onStart();
     }
 
     // Update is called once per frame
@@ -85,5 +85,12 @@ public class Move : MonoBehaviour
     public float GetVelocity()
     {
         return velocity.x;
+    }
+
+    public void onStart()
+    {
+        speed = minSpeed;
+        body.velocity = new Vector2(0, 0);
+        transform.position = new Vector3(0, -4, 0);
     }
 }
