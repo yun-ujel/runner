@@ -6,7 +6,7 @@ public class Score : MonoBehaviour
 {
     GameObject scoreMan;
     float StartPos;
-    scoreManager manager;
+    ScoreManager manager;
     [SerializeField] private float distanceMultiplier = 1f;
 
     // Start is called before the first frame update
@@ -14,7 +14,7 @@ public class Score : MonoBehaviour
     {
         scoreMan = GameObject.Find("ScoreManager");
         StartPos = transform.position.x;
-        manager = scoreMan.GetComponent<scoreManager>();
+        manager = scoreMan.GetComponent<ScoreManager>();
     }
 
     // Update is called once per frame

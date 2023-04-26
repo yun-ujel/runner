@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class scoreManager : MonoBehaviour
+public class ScoreManager : MonoBehaviour
 {
     public TextMeshProUGUI ScoreText;
     public float distanceScore;

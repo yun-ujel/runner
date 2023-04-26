@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class master : MonoBehaviour
+public class Master : MonoBehaviour
 {
     GameObject player;
     GameObject cam;
@@ -28,9 +28,8 @@ public class master : MonoBehaviour
         }
     }
 
-    private void Restart()
+    public void Restart()
     {
-        cc.onStart();
-        pmc.onStart();
+        SceneManager.LoadScene(0);
     }
 }
